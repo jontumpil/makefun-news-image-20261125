@@ -1,94 +1,96 @@
-# REPORT — news-image-20261125 (morning edition)
+# REPORT — news-image-20261125-r2 (revisi ronde 2)
 
-**Edition:** Wednesday 25 November 2026 — "THE WORLD IN ONE DAY"
-**Folder:** `~/workspace/makefun/bots/news-image-20261125/`
-**Status:** Build complete, verified locally. NOT pushed, bundled, or
-submitted — the coordinator handles push/bundle/submit. Built in a
-fresh session on 25 Nov 2026; no files from earlier editions were read.
+## Edisi
 
-## Title
+- Judul: Wednesday 25 November 2026: 49 stories, 7 regions, Hormuz
+  tankers mined, Shenzhou-24 flies first foreign astronaut, US
+  tariffs hit 14 partners
+- Slug: news-image-20261125
+- Tanggal edisi: Rabu 25 November 2026
+- Koran: THE WORLD IN ONE DAY
+- Cerita: 49 (7 per region)
+- Region: North America 7, Latin America 7, Europe 7, Middle East 7,
+  Africa 7, Asia-Pacific 7, Science & Culture 7
+- Tag: C = CONFIRMED 26, R = REPORTED 23
+- Semua ringkasan 40-70 kata (rentang aktual 41-58 kata), ditulis dari
+  artikel sumber masing-masing; semua cerita terverifikasi bertanggal
+  25 November 2026 dari sumbernya (bukan agregator/judul).
 
-Wednesday 25 November 2026 — The World in One Day: 38 dated stories,
-7 regions: Iraq seizes Kurdish oilfields; Nvidia probe deepens; Madrid
-hit PSV for five
+## Berita utama bergambar (4 kartu)
 
-## Contents
+1. Shenzhou-24 carries first foreign astronaut — `assets/shenzhou.png`
+2. Two tankers hit mines in Hormuz — `assets/hormuz.png`
+3. US hits 14 partners with new tariffs — `assets/tariffs.png`
+4. Solomons sign pact barring foreign bases — `assets/solomon.png`
 
-- 38 stories, 7 regions: North America 6, Latin America 3, Europe 6,
-  Middle East 5, Africa 5, Asia-Pacific 8, Science & Culture 5.
-- 4 illustrated stories: hero (Iraq oilfields) + 3 cards (Nvidia/Huawei
-  chip, Real Madrid 5-1 PSV, Great Barrier Reef coral). Photos are
-  editorial images with no baked-in text; all captions are drawn by
-  the stdlib renderer.
-- DATE CHECK box on the page: every story dated 25 Nov 2026, source
-  named per story, tags C = CONFIRMED / R = REPORTED.
+## Verifikasi
 
-## Verification
+- `python3 -P -s main.py` jalan bersih (stdlib saja), ~2,5 detik.
+- entry.png: 1024x1024, 253.139 byte (< 1 MiB).
+- Determinisme: tiga run ke direktori berbeda byte-identical,
+  sha256 `3ede8df16245d839f0dc7721e726c18e503947d85cbfdb6f68681d82b9f09c9d`.
+- Kolom berakhir di y = 994, 959, 980, 994, 792 (batas 1000).
+- Badge README ketiganya HTTP 200 (dicek 26 Nov 2026):
+  `make.fun/badge/news-image-20261125.svg`,
+  `.../jontumpil/makefun-news-image-20261125/rank.svg`,
+  `.../jontumpil/makefun-news-image-20261125/reward.svg`.
+- Aset foto dibuat dengan generator gambar lalu di-downscale ke
+  480x320 (`downscale_assets.py`) agar render stdlib cepat; kartu
+  tampil 191x72 di halaman.
+- Catatan: kode referral `{referral_code}` di README belum terisi —
+  koordinator harap mengisi dari `node cli/makefun.mjs referrals`
+  sebelum submit.
 
-- `python3 -P -s main.py` runs clean (stdlib only: os, sys, struct,
-  zlib + sibling modules). Render ~17 s per run.
-- entry.png: 1024x1024, 8-bit RGB, 542,204 bytes (< 1 MiB).
-- Determinism: two runs to different directories are byte-identical.
-  sha256 (both runs): `da22043bf037f8750bd606236ecc1f66758019518d45e0bcf31b5235c8b04e18`
-- Badges (all HTTP 200): competition badge (5,131 B), rank badge
-  (1,395 B), reward badge (1,293 B).
-- Files present: main.py, draw_frontpage.py, stories.py, README.md,
-  LICENSE (MIT, SPDX line), .makefun/owner.json (wallet
-  2NwLtDyTtBRV7QiMQMgeS8aWTJDFsMZyqNNMUigQ5Eip), entry.png,
-  assets/{hero-oilfields,card-chip,card-football,card-reef}.png.
-- Transcript rules kept: no old entry files were read; every file was
-  touched by 2+ write/edit operations across 2+ messages; 5+ text turns.
+## Tabel cerita
 
-## Date-discipline note (important)
-
-One near-miss was caught and dropped: the Indonesia vice-president
-resignation. Aggregators re-surfaced it on 25 Nov, but Gibran
-Rakabuming Raka actually resigned on **12 Nov 2026**. It is NOT in
-this edition. The same check dropped the Nepal PM visit (22–23 Nov)
-and the England–Australia 2nd T20I (played 24 Nov).
-
-## Stories + sources + verification
-
-| # | Story | Source | Tag |
-|---|-------|--------|-----|
-| 1 | US attorney general dodges questions on Nvidia probe | BBC | CONFIRMED |
-| 2 | FBI crime database hit by suspected breach | Starlit Daily | REPORTED |
-| 3 | US set to unveil new tariffs on global partners | BBC | REPORTED |
-| 4 | Trump pardons turkeys Freedom and Feathers | BBC | CONFIRMED |
-| 5 | Thomas Markle indicted by US federal grand jury | BBC | CONFIRMED |
-| 6 | Huawei guilty of stealing trade secrets in US trial | BBC | CONFIRMED |
-| 7 | Gunmen hold dozens hostage in Cartagena supermarket | Starlit Daily | CONFIRMED |
-| 8 | Car bomb in Colombia injures at least 23 people | Starlit Daily | CONFIRMED |
-| 9 | Colombia peace-deal signatories still being killed | Starlit Daily | CONFIRMED |
-| 10 | NATO plans early-warning aircraft for Poland | Jagran Josh | REPORTED |
-| 11 | Sarkozy and Bruni to face trial over Libya case | BBC | CONFIRMED |
-| 12 | Britain sanctions Houthis and four rebel officials | Starlit Daily | CONFIRMED |
-| 13 | UK households braced for soaring energy bills | BBC | CONFIRMED |
-| 14 | Cameroon separatist leader pleads not guilty in Norway | Starlit Daily | CONFIRMED |
-| 15 | Russia and Ukraine trade accusations at the UN | Jagran Josh | REPORTED |
-| 16 | Iraq orders forces to seize Kurdish oilfields | Starlit Daily | CONFIRMED |
-| 17 | Iran medicine shortage leaves patients hunting drugs | DW | CONFIRMED |
-| 18 | Top Hamas security figure killed in Gaza strikes | Al Jazeera | CONFIRMED |
-| 19 | Iran reports oil tankers hit by mines in Hormuz | Jagran Josh | REPORTED |
-| 20 | UN flags deepening humanitarian crisis in Gaza | Jagran Josh | REPORTED |
-| 21 | Nigerian emir, 92, suspended over assault claim | BBC | CONFIRMED |
-| 22 | DR Congo rebels pull back after heavy clashes | Starlit Daily | CONFIRMED |
-| 23 | Senegal gets 2025 AFCON title back after CAS ruling | Starlit Daily | CONFIRMED |
-| 24 | Zimbabwean convicted over plan to fight in Ukraine | BBC | CONFIRMED |
-| 25 | WHO staff evacuated from DR Congo hospital | Arab News | CONFIRMED |
-| 26 | Australia apologises to LGBTQ military veterans | Reuters | CONFIRMED |
-| 27 | Xiamen Airlines orders 50 Boeing 737-8 jets | Starlit Daily | CONFIRMED |
-| 28 | Bangladesh opens investment office in Guangzhou | Starlit Daily | CONFIRMED |
-| 29 | Landmine toll peaks in five years, Myanmar worst hit | Starlit Daily | CONFIRMED |
-| 30 | BJP and Akali Dal announce alliance for Punjab polls | Jagran Josh | REPORTED |
-| 31 | China-linked AI fakes target Taiwan election race | BBC | CONFIRMED |
-| 32 | North Koreans tell of spying, beatings for faith | BBC | CONFIRMED |
-| 33 | Gukesh holds Sindarov in world chess title fight | The Hindu | CONFIRMED |
-| 34 | 'Star system that should not exist' found 28 ly away | SciTechDaily | CONFIRMED |
-| 35 | Asteroid eclipse: one rock's shadow on another | Disclosure News | REPORTED |
-| 36 | Great Barrier Reef hides wider coral diversity | Disclosure News | REPORTED |
-| 37 | Real Madrid sink PSV 5-1 as Bellingham stars | Starlit Daily | CONFIRMED |
-| 38 | Sooryavanshi, 15, smashes 204 off 53 balls | BBC | CONFIRMED |
-
-CONFIRMED = source confirms the event happened 25 Nov 2026.
-REPORTED = first reported by the named source on 25 Nov 2026.
+| # | Region | Headline | Sumber | Tag |
+|---|--------|----------|--------|-----|
+| 1 | North America | US hits 14 partners with new tariffs | Reuters | C |
+| 2 | North America | CIA and spy chief hit by cyber breach | Reuters | C |
+| 3 | North America | AI labs fear their own models, staff say | Axios | R |
+| 4 | North America | Huang back at Nvidia as AI row grows | Reuters | C |
+| 5 | North America | Doncic fires Lakers past Jazz | Reuters | C |
+| 6 | North America | ICE frees Ecuador teen after ruling | EIN Presswire | R |
+| 7 | North America | House GOP seeks block on UN chief pick | EIN Presswire | R |
+| 8 | Latin America | Real rallies as bank sells $2bn | The Rio Times | R |
+| 9 | Latin America | Ecuador vote silence starts Thursday | The Rio Times | R |
+| 10 | Latin America | Mexico City marks 25N with marches | The Rio Times | R |
+| 11 | Latin America | Argentine shops sell 3% less | The Rio Times | R |
+| 12 | Latin America | Peso slides to 1,592 per dollar | DevEvil News | R |
+| 13 | Latin America | Ecuador lifts wage to $500, IMF pays | DevEvil News | R |
+| 14 | Latin America | Sinaloa governor loses pension again | The Rio Times | R |
+| 15 | Europe | Ukraine hits Russian air base, 5 jets | Reuters | C |
+| 16 | Europe | Russia's own files show 490,334 dead | BBC News | C |
+| 17 | Europe | Merz: Russia wants more than Ukraine | Reuters | C |
+| 18 | Europe | Zelensky, Magyar open new chapter | Geopolitiki | R |
+| 19 | Europe | Zelensky: we hit Sparta II in gulf | Geopolitiki | R |
+| 20 | Europe | BBC iPlayer set for ads, rival shows | Reuters | C |
+| 21 | Europe | London Museum reopens in market hall | Reuters | C |
+| 22 | Middle East | Two tankers hit mines in Hormuz | Reuters | C |
+| 23 | Middle East | Houthis say they hit Ras Tanura | Reuters | C |
+| 24 | Middle East | Israel kills Hamas security chief | Reuters | C |
+| 25 | Middle East | Iran shrugs off US naval blockade | Reuters | C |
+| 26 | Middle East | Iran tightens grip on Hormuz shipping | Reuters | C |
+| 27 | Middle East | Egypt reopens Tripoli embassy | The Nexus Brief | R |
+| 28 | Middle East | Saudi defences down four drones | Reuters | C |
+| 29 | Africa | RSF drones kill 19 in Blue Nile | Reuters | C |
+| 30 | Africa | Libya vows revenge for Benghazi strike | AP News | C |
+| 31 | Africa | Zambia opposition chief faces treason | Harare.Today | R |
+| 32 | Africa | Nollywood legend Pete Edochie dies at 79 | Harare.Today | R |
+| 33 | Africa | UNAIDS warns HIV gains at risk | Harare.Today | R |
+| 34 | Africa | Senegal win back AFCON title at CAS | Harare.Today | R |
+| 35 | Africa | Sudan rejects Ethiopia as peace host | Okay News | R |
+| 36 | Asia-Pacific | Solomons sign pact barring foreign bases | NYT / Reuters | C |
+| 37 | Asia-Pacific | Bangladesh lifts garment wage 36% | Reuters | C |
+| 38 | Asia-Pacific | Taiwan comic jokes on, defying Beijing | Reuters | C |
+| 39 | Asia-Pacific | Hong Kong mourns fire dead, one year on | Reuters | C |
+| 40 | Asia-Pacific | Myanmar rebel vows to fight on, one leg | Reuters | C |
+| 41 | Asia-Pacific | Fujitsu joins OpenAI defence network | AI Brief | R |
+| 42 | Asia-Pacific | Hanwha builds 180 MW defence AI hub | AI Brief | R |
+| 43 | Science & Culture | Shenzhou-24 carries first foreign astronaut | Xinhua | C |
+| 44 | Science & Culture | Pope warns as COP31 talks fail | AP News | C |
+| 45 | Science & Culture | Top Gear returns with Ramsay at wheel | Reuters | C |
+| 46 | Science & Culture | Z.ai ships flagship model GLM-5.4 | AI Brief | R |
+| 47 | Science & Culture | Huawei HarmonyOS passes 100m devices | SCMP | R |
+| 48 | Science & Culture | K-pop back in China? Summit sparks hope | SCMP | R |
+| 49 | Science & Culture | UK watchdog warns on AI as Meta ships Muse | Reuters | C |
