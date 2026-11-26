@@ -29,7 +29,12 @@ def check_stories():
 def main():
     check_stories()
     base = os.path.dirname(os.path.abspath(__file__))
-    out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(base, "entry.png")
+    if len(sys.argv) > 1:
+        out = sys.argv[1]
+    else:
+        out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
+        os.makedirs(out_dir, exist_ok=True)
+        out = os.path.join(out_dir, "entry.png")
     ends = render(base, STORIES, CARDS, TITLE, DATE_LINE, out)
     top = max(ends)
     assert top <= 1000, "columns overflow: tallest ends at %d" % top
